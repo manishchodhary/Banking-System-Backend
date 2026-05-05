@@ -1,6 +1,5 @@
 # Banking-System-Backend
 
-#  Banking System Backend
 
 A secure and scalable banking system backend built using **Node.js**, **Express**, and **MongoDB**.
 This project provides RESTful APIs for managing users, accounts, and transactions.
