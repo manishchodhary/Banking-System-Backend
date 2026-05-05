@@ -1,5 +1,6 @@
 import userModel from "../model/user.model.js";
 import jwt from "jsonwebtoken";
+import { sendEmail } from "../services/email.service.js";
 
 export const Register = async (req, res) => {
   try {
@@ -25,6 +26,7 @@ export const Register = async (req, res) => {
       message: "User created successfully",
       user,
     });
+    await sendEmail.sendRegistrationEmail(user.email,user.name)
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
     console.log("Error in register controller", error);
