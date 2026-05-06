@@ -42,6 +42,6 @@ userSchmea.method.comparePassword = async function (password) {
     
 }
 
-const userModel = mongoose.model("User",userSchmea)
+const userModel = mongoose.model("user",userSchmea)
 
 export default userModel;

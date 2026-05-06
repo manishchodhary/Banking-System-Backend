@@ -7,12 +7,12 @@ export const Register = async (req, res) => {
     const { email, password, name } = req.body;
     const isExists = await userModel.findOne({ email });
     if (isExists) {
-      return res.status(409).jsomn({ message: "User already exists" });
+      return res.status(409).json({ message: "User already exists" });
     }
 
     const user = await userModel.create({ email, password, name });
 
-    const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
     res.cookie("token", token, {

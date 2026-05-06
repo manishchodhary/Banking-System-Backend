@@ -6,7 +6,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 
-app.use("user",userRoutes)
+app.use("/api/user",userRoutes)
 
 app.get("/",(req,res)=>{
     res.send("server is running")
